@@ -1,0 +1,13 @@
+{
+  "$comment": "Copy to docs-policy.local.json (gitignored). `redact` rewrites text the sync script emits; `forbid` fails the lint and the sync if a pattern survives. Keep the company name and internal hosts here, never in tracked files.",
+  "redact": [
+    {"name": "internal GitLab host", "pattern": "gitlab\\.acme\\.internal", "replacement": "gitlab.example.com", "flags": "gi"},
+    {"name": "package mirror", "pattern": "nexus\\.acme\\.internal", "replacement": "nexus.example.com", "flags": "gi"},
+    {"name": "company name", "pattern": "acme", "replacement": "[company]", "flags": "gi"}
+  ],
+  "forbid": [
+    {"name": "company name", "pattern": "acme", "flags": "i"},
+    {"name": "internal domain", "pattern": "\\.acme\\.internal", "flags": "i"}
+  ],
+  "allowedHosts": []
+}

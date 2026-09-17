@@ -1,0 +1,10 @@
+{
+  "$comment": "Defaults for scripts/sync-projects.mjs. List the team's repositories in the untracked sync.config.local.json (see sync.config.local.example.json) so repository names stay out of this file. Override the checkout root with DS_PROJECTS_ROOT.",
+  "projectsRoot": "~/code",
+  "changelog": {
+    "days": 120,
+    "perProject": 8,
+    "total": 60
+  },
+  "projects": []
+}

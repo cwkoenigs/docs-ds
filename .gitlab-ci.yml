@@ -1,0 +1,17 @@
+stages:
+  - build
+
+# Replace <docs-runner-tag> with your configured shell runner's tag.
+# The runner must provide Node.js 22; shell executors do not use image:.
+build_docs:
+  stage: build
+  tags:
+    - '<docs-runner-tag>'
+  script:
+    - node --version
+    - npm ci --no-fund --no-audit
+    - npm run validate
+  artifacts:
+    paths:
+      - build/
+    expire_in: 1 week

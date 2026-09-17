@@ -1,0 +1,54 @@
+{
+  "name": "docs-ds",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Data Science team wiki and ds-cli documentation",
+  "scripts": {
+    "start": "docusaurus start --port 3333 --no-open",
+    "build": "docusaurus build",
+    "serve": "docusaurus serve --port 3333 --no-open",
+    "clear": "docusaurus clear",
+    "typecheck": "tsc --noEmit",
+    "check:build": "node scripts/check-build.mjs",
+    "validate": "npm run lint && npm run typecheck && npm run build && npm run check:build",
+    "lint": "node scripts/lint-docs.mjs",
+    "lint:strict": "node scripts/lint-docs.mjs --strict",
+    "sync": "node scripts/sync-projects.mjs",
+    "sync:check": "node scripts/sync-projects.mjs --check"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/faster": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@docusaurus/theme-common": "3.10.2",
+    "@easyops-cn/docusaurus-search-local": "0.55.3",
+    "@mdx-js/react": "^3.1.0",
+    "clsx": "^2.1.1",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "typescript": "~5.9.3"
+  },
+  "engines": {
+    "node": ">=22.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome versions",
+      "last 3 firefox versions",
+      "last 3 safari versions"
+    ]
+  }
+}

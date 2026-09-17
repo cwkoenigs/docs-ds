@@ -1,0 +1,8 @@
+{
+  "$comment": "Copy to sync.config.local.json (gitignored) on the machine that has the team's repositories checked out. `name` is the directory under projectsRoot and the wiki page file name; `path` overrides the directory. `summary`, `tags`, `status`, and `owner` seed a new page and are ignored once the page exists.",
+  "projectsRoot": "~/code",
+  "projects": [
+    {"name": "example-pipeline", "title": "example-pipeline", "summary": "What it does, in one sentence.", "tags": ["snowflake"], "status": "active", "owner": "Data Science"},
+    {"name": "example-app", "path": "/absolute/path/if/not/under/projectsRoot"}
+  ]
+}

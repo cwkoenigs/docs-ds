@@ -1,0 +1,103 @@
+{
+  "$comment": "Rules for scripts/lint-docs.mjs. Add company names and internal hostnames to the untracked docs-policy.local.json instead of here (see docs-policy.local.example.json).",
+  "staleDays": 180,
+  "minWords": 40,
+  "stubPatterns": [
+    ":::note\\[Awaiting",
+    "Awaiting migration",
+    "Awaiting original"
+  ],
+  "markers": [
+    "TODO",
+    "TBD",
+    "FIXME",
+    "XXX"
+  ],
+  "project": {
+    "required": [
+      "title",
+      "description",
+      "tags",
+      "related",
+      "status",
+      "last_reviewed"
+    ],
+    "statuses": [
+      "active",
+      "maintenance",
+      "experimental",
+      "archived"
+    ]
+  },
+  "insight": {
+    "required": [
+      "title",
+      "description",
+      "date"
+    ]
+  },
+  "adr": {
+    "statuses": [
+      "Proposed",
+      "Accepted",
+      "Superseded",
+      "Deprecated",
+      "Rejected"
+    ]
+  },
+  "allowedHosts": [
+    "example.com",
+    "github.com",
+    "gitlab.com",
+    "snowflake.com",
+    "pixi.sh",
+    "prefix.dev",
+    "python.org",
+    "pypi.org",
+    "pypa.io",
+    "npmjs.com",
+    "nodejs.org",
+    "docusaurus.io",
+    "docker.com",
+    "streamlit.io",
+    "mlflow.org",
+    "metaflow.org"
+  ],
+  "redact": [],
+  "forbid": [
+    {
+      "name": "private IPv4 address",
+      "pattern": "\\b(?:10|172\\.(?:1[6-9]|2\\d|3[01])|192\\.168)\\.\\d{1,3}\\.\\d{1,3}(?:\\.\\d{1,3})?\\b"
+    },
+    {
+      "name": "Snowflake account locator",
+      "pattern": "\\b[a-z0-9][a-z0-9-]*\\.privatelink\\b",
+      "flags": "gi"
+    },
+    {
+      "name": "Snowflake registry with real account",
+      "pattern": "\\b[a-z0-9][a-z0-9-]*\\.registry\\.snowflakecomputing\\.com",
+      "flags": "gi"
+    },
+    {
+      "name": "email address",
+      "pattern": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+    },
+    {
+      "name": "GitLab token",
+      "pattern": "glpat-[A-Za-z0-9_-]{10,}"
+    },
+    {
+      "name": "AWS access key",
+      "pattern": "AKIA[0-9A-Z]{16}"
+    },
+    {
+      "name": "bearer token",
+      "pattern": "Bearer\\s+[A-Za-z0-9._-]{20,}"
+    },
+    {
+      "name": "private key block",
+      "pattern": "-----BEGIN [A-Z ]*PRIVATE KEY-----"
+    }
+  ]
+}
