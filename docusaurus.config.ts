@@ -17,6 +17,7 @@ const config: Config = {
   trailingSlash: true,
   future: {v4: true},
   onBrokenLinks: 'throw',
+  onBrokenAnchors: 'throw',
   i18n: {defaultLocale: 'en', locales: ['en']},
   markdown: {
     format: 'detect',

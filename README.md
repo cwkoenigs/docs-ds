@@ -4,7 +4,7 @@ Docusaurus site for the Data Science team wiki and ds-cli guide. It replaces an 
 
 ## Run locally
 
-Requires Node.js 22 and npm.
+Requires Node.js 26 and npm.
 
 ```bash
 npm ci
@@ -57,7 +57,7 @@ npm run sync && npm run lint
 
 ### Continuous integration
 
-`.github/workflows/build.yml` runs `npm run validate` (lint, typecheck, build, build checks) on every push and pull request and uploads `build/`. `.gitlab-ci.yml` does the same for a GitLab shell runner that provides Node.js 22. Neither runs the sync; they build what is committed.
+`.github/workflows/build.yml` runs `npm run validate` (lint, typecheck, build, build checks) on every push and pull request and uploads `build/`. `.gitlab-ci.yml` does the same for a GitLab shell runner that provides Node.js 26. Neither runs the sync; they build what is committed.
 
 ### Not yet migrated
 
@@ -82,7 +82,7 @@ The default keeps the `/docs/` path and uses an example domain. Set `SITE_URL` t
 
 `npm run validate` type-checks, builds, and verifies the main routes, local assets, and search index. Static output is in `build/`.
 
-- [.gitlab-ci.yml](.gitlab-ci.yml) saves `build/` as an artifact. Replace `<docs-runner-tag>` with the tag of a shell runner that provides Node.js 22 before using the pipeline. This job does not publish to the live server.
+- [.gitlab-ci.yml](.gitlab-ci.yml) saves `build/` as an artifact. Replace `<docs-runner-tag>` with the tag of a shell runner that provides Node.js 26 before using the pipeline. This job does not publish to the live server.
 - [deploy/nginx-existing.conf](deploy/nginx-existing.conf) is a fragment for the existing server's `/docs/` location. Adapt the example filesystem path and preserve the rest of the server config.
 - [Dockerfile](Dockerfile) serves the build with nginx on port 8080. Default site path: `/docs/`; health endpoint: `/healthz`.
 

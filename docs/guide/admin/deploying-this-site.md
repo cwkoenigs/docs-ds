@@ -7,7 +7,7 @@ The site builds to static HTML in `build/`. Wiki and Guide pages are ordinary Ma
 
 ## Run locally
 
-Use Node.js 22 and npm.
+Use Node.js 26 and npm.
 
 ```bash
 npm ci
@@ -44,7 +44,7 @@ SITE_URL=https://docs.example.com SITE_BASE_URL=/ npm run validate
 
 ## Existing nginx host
 
-The GitLab pipeline in this checkout validates the site and saves `build/` as an artifact. Replace `<docs-runner-tag>` in `.gitlab-ci.yml` with the tag of a shell runner that provides Node.js 22. The pipeline does not change the running server.
+The GitLab pipeline in this checkout validates the site and saves `build/` as an artifact. Replace `<docs-runner-tag>` in `.gitlab-ci.yml` with the tag of a shell runner that provides Node.js 26. The pipeline does not change the running server.
 
 For the existing `/docs/` URL, copy the contents of `build/` into a `docs/` directory beneath nginx's chosen web root. The repository includes a location fragment in `deploy/nginx-existing.conf` using `/srv/www/docs-ds-public` as an example web root. Adapt that path to the server's release directory.
 
