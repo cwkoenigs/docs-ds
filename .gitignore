@@ -8,6 +8,3 @@ build/
 .env.*
 !.env.example
 
-# Local docs policy (company names, internal hosts) stays out of git
-docs-policy.local.json
-sync.config.local.json

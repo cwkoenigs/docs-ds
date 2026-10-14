@@ -1,0 +1,14 @@
+# Package a prebuilt site (for example the portal from the canon pipeline) with nginx.
+#   docker build -f Dockerfile.static --build-arg SITE_DIR=path/to/site -t ds-portal .
+# The site must have been built with SITE_BASE_URL=/ (what `ds docs` uses).
+FROM nginxinc/nginx-unprivileged:stable-alpine
+USER root
+ARG SITE_DIR=site
+COPY deploy/nginx-container.conf /etc/nginx/conf.d/default.conf
+RUN rm -rf /usr/share/nginx/html/*
+COPY ${SITE_DIR}/ /usr/share/nginx/html/
+RUN cp /usr/share/nginx/html/404.html /usr/share/nginx/html/404.html 2>/dev/null || true
+USER 101
+EXPOSE 8080
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD wget -q --spider http://127.0.0.1:8080/healthz || exit 1

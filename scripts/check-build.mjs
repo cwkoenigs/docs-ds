@@ -11,9 +11,7 @@ const version = globalData['docusaurus-plugin-content-docs'].default.versions[0]
 const baseUrl = config.baseUrl;
 
 assert(version.docs.some((doc) => doc.path === baseUrl), 'The documentation landing page is missing.');
-for (const sidebar of ['wikiSidebar', 'guideSidebar']) {
-  assert(version.sidebars[sidebar]?.link, `Missing ${sidebar} navigation.`);
-}
+assert(version.sidebars.docs?.link, 'Missing docs navigation.');
 
 const assets = new Set();
 for (const doc of version.docs) {
@@ -43,8 +41,6 @@ const search = JSON.parse(await readFile(path.join(output, searchFile), 'utf8'))
 const records = search.flatMap((section) => section.documents);
 assert(records.length > 0, 'Local search has no documents. Check noindex and route-base settings.');
 const searchPaths = records.map((record) => record.u).filter(Boolean);
-for (const section of ['wiki/', 'guide/']) {
-  assert(searchPaths.some((url) => url.startsWith(`${baseUrl}${section}`)), `Search is missing ${section}`);
-}
+assert(searchPaths.every((url) => url.startsWith(baseUrl)), 'Search records escape the base URL.');
 
 console.log(`Verified ${version.docs.length} documentation routes, ${assets.size} local assets, and ${records.length} search records at ${baseUrl}.`);

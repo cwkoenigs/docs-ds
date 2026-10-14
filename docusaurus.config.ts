@@ -4,29 +4,37 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // Keep the existing /docs URL; use SITE_BASE_URL=/ for a dedicated SPCS host.
 const basePath = process.env.SITE_BASE_URL ?? '/docs/';
+// The shell renders whatever content tree it is pointed at: the team site by default, or a
+// staged tree from `ds docs` (one repo, or the portal). Strictness belongs to `reconcile --check`,
+// so a staged build may downgrade broken links to warnings with DOCS_STRICT=0.
+const contentPath = process.env.DOCS_CONTENT_PATH ?? 'docs';
+const siteTitle = process.env.SITE_TITLE ?? 'Data Science';
+const onBroken = process.env.DOCS_STRICT === '0' ? 'warn' : 'throw';
+const staticDirs = ['static', ...(process.env.DOCS_STATIC_PATH ? [process.env.DOCS_STATIC_PATH] : [])];
 if (!basePath.startsWith('/') || !basePath.endsWith('/') || /[?#]/.test(basePath)) {
   throw new Error('SITE_BASE_URL must start and end with / (for example /docs/ or /).');
 }
 
 const config: Config = {
-  title: 'Data Science',
-  tagline: 'Team knowledge, project context, and the ds-cli guide',
+  title: siteTitle,
+  tagline: process.env.SITE_TAGLINE ?? 'Team knowledge, project context, and the ds-cli guide',
   favicon: 'img/ds-monogram.svg',
   url: process.env.SITE_URL ?? 'https://analytics.example.com',
   baseUrl: basePath,
   trailingSlash: true,
   future: {v4: true},
-  onBrokenLinks: 'throw',
-  onBrokenAnchors: 'throw',
+  onBrokenLinks: onBroken,
+  onBrokenAnchors: onBroken,
+  staticDirectories: staticDirs,
   i18n: {defaultLocale: 'en', locales: ['en']},
   markdown: {
     format: 'detect',
-    hooks: {onBrokenMarkdownLinks: 'throw', onBrokenMarkdownImages: 'throw'},
+    hooks: {onBrokenMarkdownLinks: onBroken, onBrokenMarkdownImages: onBroken},
   },
   presets: [
     ['classic', {
       docs: {
-        path: process.env.DOCS_CONTENT_PATH ?? 'docs',
+        path: contentPath,
         routeBasePath: '/',
         sidebarPath: './sidebars.ts',
         // Only show edit links when the content's actual repository is configured.
@@ -50,7 +58,7 @@ const config: Config = {
       indexPages: false,
       // The internal site is noindex for web crawlers, but still locally searchable.
       forceIgnoreNoIndex: true,
-      docsDir: process.env.DOCS_CONTENT_PATH ?? 'docs',
+      docsDir: contentPath,
       docsRouteBasePath: '/',
       highlightSearchTermsOnTargetPage: true,
       explicitSearchResultPath: true,
@@ -61,12 +69,9 @@ const config: Config = {
     colorMode: {respectPrefersColorScheme: true},
     docs: {sidebar: {hideable: true}},
     navbar: {
-      title: 'Data Science',
+      title: siteTitle,
       logo: {alt: '', src: 'img/ds-monogram.svg', width: 34, height: 34},
-      items: [
-        {type: 'docSidebar', sidebarId: 'wikiSidebar', position: 'left', label: 'Wiki'},
-        {type: 'docSidebar', sidebarId: 'guideSidebar', position: 'left', label: 'Guide'},
-      ],
+      items: [{type: 'docSidebar', sidebarId: 'docs', position: 'left', label: process.env.SITE_NAV_LABEL ?? 'Docs'}],
     },
     footer: {
       style: 'dark',
