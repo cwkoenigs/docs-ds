@@ -26,6 +26,19 @@ npm run validate     # typecheck, build, and build checks
 
 The shell is found by `ds` at `$DS_DOCS_SHELL`, then `~/code/docs-ds`, then `~/Developer/docs-ds`.
 
+## Theme
+
+Every theme value — colors for both modes, font stacks, radii, shadows, navbar height and sidebar
+width — lives in [`design-system/tokens.json`](design-system/tokens.json). `npm run theme` (run
+automatically before `start` and `build`) generates `src/css/tokens.css` from it;
+`src/css/custom.css` holds only rules. To change a color, edit `tokens.json`, not the CSS.
+
+The same files are published as the team's [Data Science design system](https://claude.ai/artifact/2a3YywNAq2HiWpF9pPeWJB)
+(brand book, token tables, component previews). `design-system/README.md` is that brand book;
+`design-system/components/` are static previews of the themed chrome. Ask Claude to sync in either
+direction — "sync the design system from docs-ds" after a change here, or "pull the design system
+into docs-ds" after an edit on the page — and review the resulting PR.
+
 ## Hosting
 
 The portal is built by the canon's pipeline with `ds docs portal` and served as static files.

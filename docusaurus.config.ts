@@ -46,7 +46,8 @@ const config: Config = {
         onInlineTags: 'ignore',
       },
       blog: false,
-      theme: {customCss: './src/css/custom.css'},
+      // tokens.css is generated from design-system/tokens.json by `npm run theme` (runs before start and build).
+      theme: {customCss: ['./src/css/tokens.css', './src/css/custom.css']},
     } satisfies Preset.Options],
   ],
   themes: [

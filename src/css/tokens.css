@@ -1,0 +1,86 @@
+/* Data Science — generated from design-system/tokens.json by scripts/build-theme.mjs. Do not edit; change tokens.json and run `npm run theme`. */
+
+:root, [data-theme='light'] {
+  --ifm-color-primary: #00aba5;
+  --ifm-color-primary-dark: #007f7b;
+  --ifm-color-primary-darker: #006d69;
+  --ifm-color-primary-darkest: #003f3d;
+  --ifm-color-primary-light: #54cbc4;
+  --ifm-color-primary-lighter: #77d8d2;
+  --ifm-color-primary-lightest: #dff7f5;
+  --ifm-background-color: #f3f7f7;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-font-color-base: #021832;
+  --ifm-color-content-secondary: #5d6c7d;
+  --ifm-color-emphasis-200: #d9e3e5;
+  --ifm-navbar-background-color: #021832;
+  --ifm-navbar-link-color: #e3e9ea;
+  --ifm-navbar-link-hover-color: #77d8d2;
+  --ifm-menu-color: #5d6c7d;
+  --ifm-menu-color-active: #006d69;
+  --ifm-menu-color-background-active: #dff7f5;
+  --ifm-link-color: #006d69;
+  --ifm-link-hover-color: #003f3d;
+  --ifm-code-background: #e7efef;
+  --ifm-toc-border-color: #d9e3e5;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 171, 165, 0.12);
+  --search-local-modal-background: #ffffff;
+  --search-local-highlight-color: #006d69;
+  --search-local-hit-background: #f3f7f7;
+  --search-local-hit-color: #021832;
+  --search-local-muted-color: #5d6c7d;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #54cbc4;
+  --ifm-color-primary-dark: #00aba5;
+  --ifm-color-primary-darker: #007f7b;
+  --ifm-color-primary-darkest: #006d69;
+  --ifm-color-primary-light: #77d8d2;
+  --ifm-color-primary-lighter: #8dbfbe;
+  --ifm-color-primary-lightest: #dff7f5;
+  --ifm-background-color: #0b1e2d;
+  --ifm-background-surface-color: #021832;
+  --ifm-font-color-base: #e3e9ea;
+  --ifm-color-content-secondary: #9ca9bd;
+  --ifm-color-emphasis-200: #344157;
+  --ifm-navbar-background-color: #001126;
+  --ifm-navbar-link-hover-color: #77d8d2;
+  --ifm-menu-color: #9ca9bd;
+  --ifm-menu-color-active: #77d8d2;
+  --ifm-menu-color-background-active: rgba(84, 203, 196, 0.1);
+  --ifm-link-color: #54cbc4;
+  --ifm-link-hover-color: #77d8d2;
+  --ifm-code-background: #183344;
+  --ifm-toc-border-color: #344157;
+  --docusaurus-highlighted-code-line-bg: rgba(84, 203, 196, 0.12);
+  --search-local-modal-background: #021832;
+  --search-local-highlight-color: #77d8d2;
+  --search-local-hit-background: #0b1e2d;
+  --search-local-hit-color: #e3e9ea;
+  --search-local-muted-color: #9ca9bd;
+  --search-local-hit-active-color: #021832;
+}
+
+:root {
+  --ifm-global-radius: 0;
+  --ifm-border-radius: 0;
+  --ifm-card-border-radius: 0;
+  --ifm-button-border-radius: 0;
+  --ifm-code-border-radius: 0;
+  --ifm-alert-border-radius: 0;
+  --ifm-breadcrumb-border-radius: 0;
+  --ifm-pagination-nav-border-radius: 0;
+  --ifm-tabs-border-radius: 0;
+  --ifm-navbar-shadow: none;
+  --search-local-modal-shadow: 0 8px 28px rgba(2, 24, 50, 0.15);
+  --ifm-navbar-height: 4.25rem;
+  --doc-sidebar-width: 280px;
+  --ifm-font-family-base: 'Helvetica Neue', Arial, sans-serif;
+  --ifm-heading-font-family: Georgia, 'Times New Roman', serif;
+  --ifm-font-family-monospace: 'SFMono-Regular', Menlo, 'Courier New', monospace;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.7;
+  --ifm-code-font-size: 90%;
+  --ifm-heading-font-weight: 500;
+}

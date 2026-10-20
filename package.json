@@ -4,7 +4,10 @@
   "private": true,
   "description": "Docs shell: the Docusaurus renderer behind `ds docs` and the team portal",
   "scripts": {
+    "theme": "node scripts/build-theme.mjs",
+    "prestart": "npm run theme",
     "start": "docusaurus start --port 3333 --no-open",
+    "prebuild": "npm run theme",
     "build": "docusaurus build",
     "serve": "docusaurus serve --port 3333 --no-open",
     "clear": "docusaurus clear",
