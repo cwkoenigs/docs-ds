@@ -1,0 +1,39 @@
+<!-- @dsCard group="Content" height=420 subtitle="Static rendition of a rendered docs page" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; padding: 0.75rem 2rem 1rem; background: var(--ifm-background-color); color: var(--ifm-font-color-base); font-family: var(--font-base); font-size: 16px; line-height: 1.7; }
+  .markdown { max-width: 640px; }
+  h1, h2, h3 { font-family: var(--font-heading); font-weight: 500; letter-spacing: -0.035em; line-height: 1.25; margin: 0 0 1rem; }
+  h1 { font-size: 3rem; }
+  h2 { font-size: 1.8rem; margin-top: 2.25rem; }
+  p { margin: 0 0 1rem; }
+  .markdown > p:first-of-type { color: var(--ifm-color-content-secondary); font-size: 1.125rem; }
+  a { color: var(--ifm-link-color); text-underline-offset: 0.2em; }
+  a:hover { color: var(--ifm-link-hover-color); }
+  code { font-family: var(--font-monospace); font-size: 90%; padding: 0.1rem 0.3rem; background: var(--ifm-code-background); border-radius: 0; }
+  pre { margin: 0 0 1rem; padding: 0.75rem 0; background: var(--ifm-code-background); border-radius: 0; font-family: var(--font-monospace); font-size: 90%; line-height: 1.6; overflow: auto; }
+  pre .line { display: block; padding: 0 1rem; }
+  pre .line--highlight { background: var(--docusaurus-highlighted-code-line-bg); }
+  table { width: 100%; font-size: 1rem; border-collapse: collapse; }
+  th { text-align: left; }
+  th, td { padding: 0.5rem 0.75rem; border: 1px solid var(--ifm-color-emphasis-200); }
+  a:focus-visible { outline: 2px solid var(--ifm-link-color); outline-offset: 4px; }
+</style>
+</head>
+<body>
+  <article class="markdown">
+    <h1>Docs shell</h1>
+    <p>This site renders whatever content tree it is pointed at.</p>
+    <p>Point it at a staged tree with <code>DOCS_CONTENT_PATH</code> and it renders that tree with pointers resolved, standards as pages, and <a href="#">local search</a>.</p>
+    <pre><span class="line">npm start</span><span class="line line--highlight">DOCS_CONTENT_PATH=/path/to/stage/docs SITE_BASE_URL=/ npm run build</span><span class="line">npm run validate</span></pre>
+    <h2>How ds docs uses it</h2>
+    <table>
+      <tr><th>Variable</th><th>Purpose</th></tr>
+      <tr><td><code>SITE_TITLE</code></td><td>Title and navbar label</td></tr>
+    </table>
+  </article>
+</body>
+</html>
