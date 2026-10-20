@@ -1,8 +1,8 @@
-The docs sidebar: a 280px column of links whose active item gets a 2px teal left rule, teal text and a tinted ground. Hand-written from `src/css/custom.css` as a static rendition; the portal renders it with Docusaurus's menu.
+The docs sidebar: a 280px column of links whose active item gets a teal left rule, teal text and a tinted ground. Hand-written from `src/css/custom.css` as a static rendition; the portal renders it with Docusaurus's menu.
 
 ## When to use
 
-Left of the article on every docs page at 997px and up; it folds into the navbar below that. The sidebar is hideable.
+Left of the article on every docs page above `breakpoint-mobile`; it folds into the navbar below that. The sidebar is hideable.
 
 ## What the consumer provides
 
@@ -11,7 +11,8 @@ Left of the article on every docs page at 997px and up; it folds into the navbar
 
 ## Rules
 
-- Width `doc-sidebar-width` (280px); padding 1.25rem 0.8rem; text `menu` (0.95rem) in `ifm-menu-color`.
-- Section labels are `menu-section` (weight 600); no rounded corners on sections, carets or links.
-- Each link has 0.6rem padding top and bottom and a 2px transparent left border.
+- Width `doc-sidebar-width`; padding `space-menu-y` `space-menu-x`; text `menu` (0.95rem) in `ifm-menu-color`.
+- Section labels are `menu-section` (weight 600); no rounded corners on sections, carets or links (`ifm-global-radius`).
+- Each link has `ifm-menu-link-padding-vertical` padding top and bottom and a transparent left border of `rule-width`.
 - The active link: left border `ifm-color-primary`, text `ifm-menu-color-active`, ground `ifm-menu-color-background-active`. Keep all three — the rule alone is 2.6:1 on the light ground.
+- Focus: a `focus-ring-width` outline in `ifm-link-color` at `focus-ring-offset`.

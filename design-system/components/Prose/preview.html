@@ -4,23 +4,23 @@
 <head>
 <meta charset="utf-8">
 <style>
-  body { margin: 0; padding: 0.75rem 2rem 1rem; background: var(--ifm-background-color); color: var(--ifm-font-color-base); font-family: var(--font-base); font-size: 16px; line-height: 1.7; }
+  body { margin: 0; padding: var(--space-content-top) 2rem var(--space-article-bottom); background: var(--ifm-background-color); color: var(--ifm-font-color-base); font-family: var(--font-base); font-size: 16px; line-height: 1.7; }
   .markdown { max-width: 640px; }
   h1, h2, h3 { font-family: var(--font-heading); font-weight: 500; letter-spacing: -0.035em; line-height: 1.25; margin: 0 0 1rem; }
   h1 { font-size: 3rem; }
-  h2 { font-size: 1.8rem; margin-top: 2.25rem; }
+  h2 { font-size: 1.8rem; margin-top: var(--space-h2-above); }
   p { margin: 0 0 1rem; }
   .markdown > p:first-of-type { color: var(--ifm-color-content-secondary); font-size: 1.125rem; }
-  a { color: var(--ifm-link-color); text-underline-offset: 0.2em; }
+  a { color: var(--ifm-link-color); text-underline-offset: var(--underline-offset-prose); }
   a:hover { color: var(--ifm-link-hover-color); }
-  code { font-family: var(--font-monospace); font-size: 90%; padding: 0.1rem 0.3rem; background: var(--ifm-code-background); border-radius: 0; }
-  pre { margin: 0 0 1rem; padding: 0.75rem 0; background: var(--ifm-code-background); border-radius: 0; font-family: var(--font-monospace); font-size: 90%; line-height: 1.6; overflow: auto; }
+  code { font-family: var(--font-monospace); font-size: 90%; padding: 0.1rem 0.3rem; background: var(--ifm-code-background); border-radius: var(--ifm-global-radius); }
+  pre { margin: 0 0 1rem; padding: 0.75rem 0; background: var(--ifm-code-background); border-radius: var(--ifm-global-radius); font-family: var(--font-monospace); font-size: 90%; line-height: 1.6; overflow: auto; }
   pre .line { display: block; padding: 0 1rem; }
   pre .line--highlight { background: var(--docusaurus-highlighted-code-line-bg); }
   table { width: 100%; font-size: 1rem; border-collapse: collapse; }
   th { text-align: left; }
   th, td { padding: 0.5rem 0.75rem; border: 1px solid var(--ifm-color-emphasis-200); }
-  a:focus-visible { outline: 2px solid var(--ifm-link-color); outline-offset: 4px; }
+  a:focus-visible { outline: var(--focus-ring-width) solid var(--ifm-link-color); outline-offset: var(--focus-ring-offset); }
 </style>
 </head>
 <body>

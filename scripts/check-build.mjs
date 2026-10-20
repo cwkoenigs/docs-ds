@@ -34,6 +34,20 @@ for (const doc of version.docs) {
 for (const asset of assets) await access(path.join(output, asset));
 await access(path.join(output, '404.html'));
 
+// The theme reached the bundle: the design system's primary color and navbar height are in the
+// emitted CSS (minification drops whitespace, so compare without it).
+const tokens = JSON.parse(await readFile(path.join(root, 'design-system/tokens.json'), 'utf8'));
+const cssDir = path.join(output, 'assets/css');
+const css = (await Promise.all((await readdir(cssDir)).filter((f) => f.endsWith('.css')).map((f) => readFile(path.join(cssDir, f), 'utf8')))).join('\n').replace(/\s+/g, '');
+const expectToken = (family, name, theme) => {
+  const token = tokens[family].tokens.find((t) => t.name === name);
+  const value = typeof token.value === 'string' ? token.value : token.value[theme];
+  assert(css.includes(`--${name}:${value.replace(/\s+/g, '')}`), `The built CSS does not define --${name} as ${value}; the theme did not reach the bundle.`);
+};
+expectToken('color', 'ifm-color-primary', 'light');
+expectToken('color', 'ifm-color-primary', 'dark');
+expectToken('layout', 'ifm-navbar-height');
+
 const files = await readdir(output);
 const searchFile = files.find((file) => /^search-index-.*\.json$/.test(file));
 assert(searchFile, 'The local search index was not generated.');

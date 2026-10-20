@@ -5,14 +5,14 @@
 <meta charset="utf-8">
 <style>
   body { margin: 0; background: var(--ifm-background-color); font-family: var(--font-base); color: var(--ifm-font-color-base); line-height: 1.7; }
-  .menu { box-sizing: border-box; width: var(--doc-sidebar-width); padding: 1.25rem 0.8rem; font-size: 0.95rem; }
+  .menu { box-sizing: border-box; width: var(--doc-sidebar-width); padding: var(--space-menu-y) var(--space-menu-x); font-size: 0.95rem; }
   .menu__list { margin: 0; padding: 0; list-style: none; }
   .menu__list .menu__list { padding-left: 1rem; }
-  .menu__link { display: block; padding: 0.6rem 0.75rem; border-left: 2px solid transparent; border-radius: 0; color: var(--ifm-menu-color); text-decoration: none; }
+  .menu__link { display: block; padding: var(--ifm-menu-link-padding-vertical) 0.75rem; border-left: var(--rule-width) solid transparent; border-radius: var(--ifm-global-radius); color: var(--ifm-menu-color); text-decoration: none; }
   .menu__link:hover { color: var(--ifm-font-color-base); }
   .menu__link--section { font-weight: 600; }
   .menu__link--active { border-left-color: var(--ifm-color-primary); color: var(--ifm-menu-color-active); background: var(--ifm-menu-color-background-active); }
-  .menu__link:focus-visible { outline: 2px solid var(--ifm-link-color); outline-offset: 4px; }
+  .menu__link:focus-visible { outline: var(--focus-ring-width) solid var(--ifm-link-color); outline-offset: var(--focus-ring-offset); }
 </style>
 </head>
 <body>
