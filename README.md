@@ -1,12 +1,16 @@
 # docs-ds
 
-The docs shell: the Docusaurus renderer behind `ds docs` and the team portal. It has no content
-of its own. `ds docs` (see ds-cli's `docs/KNOWLEDGE_SYSTEM.md`) stages a content tree, repository
-docs with pointers resolved plus the canon's standards as pages, and points this shell at it.
+The docs shell: the Docusaurus renderer behind ds-next's `/docs` and the team portal. It has no
+content of its own. `/docs` stages a content tree, repository docs with pointers resolved plus
+the canon's standards as pages, and points this shell at it.
+
+## Install and update
+
+Requires Node.js 26 and npm. The canon's `install.sh` clones this beside canon and ds-next and
+its `bootstrap.sh` runs `npm ci` here; rerunning either pulls and reinstalls. By hand:
+`git pull && npm ci`. Nothing else needs doing when this repository changes.
 
 ## Run
-
-Requires Node.js 26 and npm.
 
 ```bash
 npm ci
