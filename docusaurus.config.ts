@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import tokens from './design-system/tokens.json';
 
 // Keep the existing /docs URL; use SITE_BASE_URL=/ for a dedicated SPCS host.
 const basePath = process.env.SITE_BASE_URL ?? '/docs/';
@@ -13,6 +14,12 @@ const onBroken = process.env.DOCS_STRICT === '0' ? 'warn' : 'throw';
 const staticDirs = ['static', ...(process.env.DOCS_STATIC_PATH ? [process.env.DOCS_STATIC_PATH] : [])];
 if (!basePath.startsWith('/') || !basePath.endsWith('/') || /[?#]/.test(basePath)) {
   throw new Error('SITE_BASE_URL must start and end with / (for example /docs/ or /).');
+}
+// The one theme value the config needs: the monogram's size in the navbar, from the design system.
+const layout = Object.fromEntries(tokens.layout.tokens.map((t) => [t.name, t.value]));
+const logoSize = Number.parseInt(layout['navbar-logo-size'], 10);
+if (!Number.isInteger(logoSize)) {
+  throw new Error('design-system/tokens.json: layout token navbar-logo-size must be a pixel size.');
 }
 
 const config: Config = {
@@ -71,11 +78,12 @@ const config: Config = {
     docs: {sidebar: {hideable: true}},
     navbar: {
       title: siteTitle,
-      logo: {alt: '', src: 'img/ds-monogram.svg', width: 34, height: 34},
+      logo: {alt: '', src: 'img/ds-monogram.svg', width: logoSize, height: logoSize},
       items: [{type: 'docSidebar', sidebarId: 'docs', position: 'left', label: process.env.SITE_NAV_LABEL ?? 'Docs'}],
     },
     footer: {
-      style: 'dark',
+      // 'light' means no footer--dark variant, so Infima reads the ifm-footer-* tokens from :root.
+      style: 'light',
       copyright: 'Data Science Team',
     },
     prism: {

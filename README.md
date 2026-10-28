@@ -32,10 +32,13 @@ The shell is found by `ds` at `$DS_DOCS_SHELL`, then `~/code/docs-ds`, then `~/D
 
 ## Theme
 
-Every theme value — colors for both modes, font stacks, radii, shadows, navbar height and sidebar
-width — lives in [`design-system/tokens.json`](design-system/tokens.json). `npm run theme` (run
-automatically before `start` and `build`) generates `src/css/tokens.css` from it;
-`src/css/custom.css` holds only rules. To change a color, edit `tokens.json`, not the CSS.
+Every theme value — colors for both modes, font stacks and styles, spacing, rules, radii, shadows
+and the chrome's dimensions — lives in [`design-system/tokens.json`](design-system/tokens.json).
+`npm run theme` (run automatically before `start` and `build`) generates `src/css/tokens.css` from
+it and copies the marks in `design-system/assets/Logos/` to `static/img/`; `src/css/custom.css`
+holds only rules and names a token for every value. To change a color or a size, edit
+`tokens.json`, not the CSS. `npm run check:theme` (part of `validate`) fails on a literal in
+`custom.css`, a stale generated file, a malformed token, or a text-on-ground pair below 4.5:1.
 
 The same files are published as the team's [Data Science design system](https://claude.ai/artifact/2a3YywNAq2HiWpF9pPeWJB)
 (brand book, token tables, component previews). `design-system/README.md` is that brand book;

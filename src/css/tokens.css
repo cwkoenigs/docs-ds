@@ -16,6 +16,10 @@
   --ifm-navbar-background-color: #021832;
   --ifm-navbar-link-color: #e3e9ea;
   --ifm-navbar-link-hover-color: #77d8d2;
+  --ifm-navbar-search-input-background-color: #0b1e2d;
+  --ifm-navbar-search-input-color: var(--ifm-navbar-link-color);
+  --ifm-navbar-search-input-placeholder-color: #9ca9bd;
+  --search-local-input-active-border-color: var(--ifm-navbar-link-hover-color);
   --ifm-menu-color: #5d6c7d;
   --ifm-menu-color-active: #006d69;
   --ifm-menu-color-background-active: #dff7f5;
@@ -23,12 +27,17 @@
   --ifm-link-hover-color: #003f3d;
   --ifm-code-background: #e7efef;
   --ifm-toc-border-color: #d9e3e5;
+  --ifm-footer-background-color: #001126;
+  --ifm-footer-color: #c0cdd5;
+  --ifm-footer-link-color: var(--ifm-footer-color);
+  --ifm-footer-link-hover-color: var(--ifm-color-primary);
   --docusaurus-highlighted-code-line-bg: rgba(0, 171, 165, 0.12);
   --search-local-modal-background: #ffffff;
   --search-local-highlight-color: #006d69;
   --search-local-hit-background: #f3f7f7;
   --search-local-hit-color: #021832;
   --search-local-muted-color: #5d6c7d;
+  --search-local-hit-active-color: #ffffff;
 }
 
 [data-theme='dark'] {
@@ -63,6 +72,20 @@
 }
 
 :root {
+  --space-menu-y: 1.25rem;
+  --space-menu-x: 0.8rem;
+  --ifm-menu-link-padding-vertical: 0.6rem;
+  --space-brand-gap: 0.4rem;
+  --space-footer: 1.4rem;
+  --space-h2-above: 2.25rem;
+  --space-content-top: 0.75rem;
+  --space-container-top: 2rem;
+  --space-article-bottom: 1rem;
+  --rule-width: 2px;
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 4px;
+  --underline-offset-prose: 0.2em;
+  --underline-offset-navbar: 0.5em;
   --ifm-global-radius: 0;
   --ifm-border-radius: 0;
   --ifm-card-border-radius: 0;
@@ -76,6 +99,10 @@
   --search-local-modal-shadow: 0 8px 28px rgba(2, 24, 50, 0.15);
   --ifm-navbar-height: 4.25rem;
   --doc-sidebar-width: 280px;
+  --navbar-logo-size: 34px;
+  --navbar-search-input-min-height: 2.25rem;
+  --h1-fluid-size: 4vw;
+  --breakpoint-mobile: 996px;
   --ifm-font-family-base: 'Helvetica Neue', Arial, sans-serif;
   --ifm-heading-font-family: Georgia, 'Times New Roman', serif;
   --ifm-font-family-monospace: 'SFMono-Regular', Menlo, 'Courier New', monospace;
@@ -83,4 +110,51 @@
   --ifm-line-height-base: 1.7;
   --ifm-code-font-size: 90%;
   --ifm-heading-font-weight: 500;
+  --type-h1-size: 3rem;
+  --type-h1-weight: 500;
+  --type-h1-tracking: -0.035em;
+  --type-h1-compact-size: 2.2rem;
+  --type-h1-compact-weight: 500;
+  --type-h1-compact-tracking: -0.035em;
+  --type-h2-size: 1.8rem;
+  --type-h2-weight: 500;
+  --type-h2-tracking: -0.035em;
+  --type-h3-size: 1.4rem;
+  --type-h3-weight: 500;
+  --type-h3-tracking: -0.035em;
+  --type-navbar-title-size: 1.5rem;
+  --type-navbar-title-weight: 500;
+  --type-navbar-title-tracking: -0.035em;
+  --type-navbar-title-compact-size: 1.3rem;
+  --type-navbar-title-compact-weight: 500;
+  --type-navbar-title-compact-tracking: -0.035em;
+  --type-body-size: 16px;
+  --type-body-weight: 400;
+  --type-body-leading: 1.7;
+  --type-lead-size: 1.125rem;
+  --type-lead-weight: 400;
+  --type-lead-leading: 1.7;
+  --type-table-size: 1rem;
+  --type-table-weight: 400;
+  --type-table-leading: 1.7;
+  --type-navbar-link-size: 1rem;
+  --type-navbar-link-weight: 500;
+  --type-navbar-link-leading: 1.7;
+  --type-menu-size: 0.95rem;
+  --type-menu-weight: 400;
+  --type-menu-leading: 1.7;
+  --type-menu-section-size: 0.95rem;
+  --type-menu-section-weight: 600;
+  --type-menu-section-leading: 1.7;
+  --type-toc-size: 0.875rem;
+  --type-toc-weight: 400;
+  --type-toc-leading: 1.7;
+  --type-footer-size: 0.875rem;
+  --type-footer-weight: 400;
+  --type-footer-leading: 1.7;
+  --type-pagination-label-size: 1rem;
+  --type-pagination-label-weight: 500;
+  --type-pagination-label-leading: 1.7;
+  --type-code-size: 90%;
+  --type-code-weight: 400;
 }

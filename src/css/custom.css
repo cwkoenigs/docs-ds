@@ -1,52 +1,61 @@
-/* Values (colors, fonts, radii, shadows, layout) live in design-system/tokens.json and are
-   generated into tokens.css, which loads before this file. Only rules belong here. */
+/* Rules only. Every value is a custom property from tokens.css, generated from
+   design-system/tokens.json; scripts/check-theme.mjs fails the build if a literal appears here.
+   The one literal CSS cannot read from a property is the breakpoint in the media queries below:
+   it repeats the breakpoint-mobile token (Docusaurus's own 996px). */
 
-h1, h2, h3, h4, h5, h6 { letter-spacing: -0.035em; }
-.markdown h1 { font-size: clamp(2.2rem, 4vw, 3rem); }
-.markdown h2 { margin-top: 2.25rem; font-size: 1.8rem; }
-.markdown h3 { font-size: 1.4rem; }
-.markdown > p:first-of-type { color: var(--ifm-color-content-secondary); font-size: 1.125rem; }
-.markdown a { text-underline-offset: 0.2em; }
-.markdown table { width: 100%; font-size: 1rem; }
+/* Prose */
+h1, h2, h3, h4, h5, h6 { letter-spacing: var(--type-h1-tracking); }
+.markdown h1 { font-size: clamp(var(--type-h1-compact-size), var(--h1-fluid-size), var(--type-h1-size)); }
+.markdown h2 { margin-top: var(--space-h2-above); font-size: var(--type-h2-size); }
+.markdown h3 { font-size: var(--type-h3-size); }
+.markdown > p:first-of-type { color: var(--ifm-color-content-secondary); font-size: var(--type-lead-size); }
+.markdown a { text-underline-offset: var(--underline-offset-prose); }
+.markdown table { width: 100%; font-size: var(--type-table-size); }
 .markdown table th { text-align: left; }
-.theme-doc-markdown { padding-bottom: 1rem; }
+.theme-doc-markdown { padding-bottom: var(--space-article-bottom); }
 
-.navbar { border-bottom: 2px solid var(--ifm-color-primary); }
-.navbar__title { font-family: var(--ifm-heading-font-family); font-size: 1.5rem; font-weight: 500; letter-spacing: -0.035em; }
-.navbar__brand { gap: 0.4rem; }
-.navbar__link { font-size: 1rem; font-weight: 500; }
-.navbar__link--active { color: #77d8d2; text-decoration: underline; text-underline-offset: 0.5em; }
-.navbar__toggle { color: #e3e9ea; }
-.navbar__items--right > div > button { color: #e3e9ea; }
+/* Navbar: navy in both themes, closed by the accent rule. Infima colors links, hover and the
+   active link from the navbar tokens; the active link's state is its underline. */
+.navbar { border-bottom: var(--rule-width) solid var(--ifm-color-primary); }
+.navbar__title { font-family: var(--ifm-heading-font-family); font-size: var(--type-navbar-title-size); font-weight: var(--type-navbar-title-weight); letter-spacing: var(--type-navbar-title-tracking); }
+.navbar__brand { gap: var(--space-brand-gap); }
+.navbar__link { font-size: var(--type-navbar-link-size); font-weight: var(--type-navbar-link-weight); }
+.navbar__link--active { text-decoration: underline; text-underline-offset: var(--underline-offset-navbar); }
+.navbar__toggle { color: var(--ifm-navbar-link-color); }
+.navbar__items--right > div > button { color: var(--ifm-navbar-link-color); }
 .navbar-sidebar { background: var(--ifm-background-surface-color); }
-.navbar-sidebar__brand { background: var(--ifm-navbar-background-color); color: #e3e9ea; }
-.navbar-sidebar__close { color: #e3e9ea; }
+.navbar-sidebar__brand { background: var(--ifm-navbar-background-color); color: var(--ifm-navbar-link-color); }
+.navbar-sidebar__close { color: var(--ifm-navbar-link-color); }
+.navbar input[type='search'] { border-radius: var(--ifm-global-radius); min-height: var(--navbar-search-input-min-height); }
+.navbar kbd { border-radius: var(--ifm-global-radius); }
+.navbar [class*='dropdownMenu'], .navbar [class*='suggestion'] { border-radius: var(--ifm-global-radius); }
 
-.menu { padding: 1.25rem 0.8rem !important; font-size: 0.95rem; }
-.menu__link { border-radius: 0; border-left: 2px solid transparent; padding-top: 0.6rem; padding-bottom: 0.6rem; }
+/* Sidebar: the active link carries all three of rule, text color and ground. Infima reads the
+   link's vertical padding from ifm-menu-link-padding-vertical. */
+.menu { padding: var(--space-menu-y) var(--space-menu-x) !important; font-size: var(--type-menu-size); }
+.menu__link { border-radius: var(--ifm-global-radius); border-left: var(--rule-width) solid transparent; }
 .menu__link--active { border-left-color: var(--ifm-color-primary); }
-.menu__list-item-collapsible > .menu__link { font-weight: 600; }
-.menu__list-item-collapsible, .menu__caret, .dropdown__menu { border-radius: 0; }
-.table-of-contents { font-size: 0.875rem; }
-.pagination-nav__link { border-radius: 0; background: var(--ifm-background-surface-color); }
-.pagination-nav__label { font-weight: 500; }
-.footer { padding: 1.4rem; background: #001126; color: #c0cdd5; font-size: 0.875rem; }
-.theme-back-to-top-button { border-radius: 0; }
+.menu__list-item-collapsible > .menu__link { font-weight: var(--type-menu-section-weight); }
+.menu__list-item-collapsible, .menu__caret, .dropdown__menu { border-radius: var(--ifm-global-radius); }
 
-/* Keep focus visible in both the dark header and light reading surface. */
-:focus-visible { outline: 2px solid var(--ifm-link-color); outline-offset: 4px; }
-.navbar :focus-visible { outline-color: #77d8d2; }
-.navbar input[type='search'] { border-radius: 0; min-height: 2.25rem; }
-.navbar kbd { border-radius: 0; }
-.navbar [class*='dropdownMenu'], .navbar [class*='suggestion'] { border-radius: 0; }
+/* Page chrome */
+.table-of-contents { font-size: var(--type-toc-size); }
+.pagination-nav__link { background: var(--ifm-background-surface-color); }
+.pagination-nav__label { font-weight: var(--type-pagination-label-weight); }
+.footer { padding: var(--space-footer); font-size: var(--type-footer-size); }
+.theme-back-to-top-button { border-radius: var(--ifm-global-radius); }
+
+/* Focus is visible everywhere: link-colored on the page, hover-colored on the navy navbar. */
+:focus-visible { outline: var(--focus-ring-width) solid var(--ifm-link-color); outline-offset: var(--focus-ring-offset); }
+.navbar :focus-visible { outline-color: var(--ifm-navbar-link-hover-color); }
 
 @media (min-width: 997px) {
-  .theme-doc-markdown { padding-top: 0.75rem; }
-  main > .container { padding-top: 2rem !important; }
+  .theme-doc-markdown { padding-top: var(--space-content-top); }
+  main > .container { padding-top: var(--space-container-top) !important; }
 }
 
 @media (max-width: 996px) {
-  .navbar__title { font-size: 1.3rem; }
-  .markdown h1 { font-size: 2.2rem; }
+  .navbar__title { font-size: var(--type-navbar-title-compact-size); }
+  .markdown h1 { font-size: var(--type-h1-compact-size); }
   .markdown table { display: block; overflow-x: auto; }
 }
