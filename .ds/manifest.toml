@@ -1,0 +1,15 @@
+[repo]
+name = "docs-ds"
+tags = ["docker", "node", "react", "typescript", "web"]
+created = "2026-10-30"
+adopted = "2026-10-30"
+lint_cmd = "npm run typecheck"
+ds_version = "0.2.0"
+canon = "/Users/clarkkoenigs/Developer/canon"
+canon_index = "2026-10-30"
+
+[provides]                 # what other repositories run, read or share (canon adr-002); matched as text
+paths = ["design-system/tokens.json", "Dockerfile.static"]
+
+[uses]                     # one key per registered repository, in the words its [provides] uses
+canon = ["install.sh", "bootstrap.sh"]        # they clone and install this shell
